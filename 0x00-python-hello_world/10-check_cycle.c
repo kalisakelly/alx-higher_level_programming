@@ -1,31 +1,29 @@
 #include "lists.h"
-#include <stdio.h>
+
 /**
-  * check_cycle - function in C that checks if a singly linked 
-  *list has a ccle in it
-  * @list: The singly list to check
+  * check_cycle - checks if a singly linked list has a cycle.
+  * @list: pointer to first element.
   *
-  * Return: 0 if there is no cycle, 1 if there is a cycle
+  * Return: 1 if cycle is found 0 if not.
   */
 int check_cycle(listint_t *list)
 {
-	listint_t *list1 = list, *list2 = list;
-	int found = 0;
+	listint_t *current, *next_node;
 
-	while ((list1 && list2) && list2->next)
+	if (list == NULL)
+		return (0);
+
+	current = list;
+	next_node = list;
+
+	while (current && next_node && next_node->next)
 	{
-		list1 = list1->next;
-		if (list2->next || list2->next->next)
-			list2 = list2->next->next;
-		else
-			break;
-
-		if (list1 == list2)
-		{
-			found = 1;
-			break;
-		}
+		current = current->next;
+		next_node = next_node->next->next;
+		if (current == next_node)
+			return (1);
 	}
-
-	return (found);
+	if (current != next_node)
+		return (0);
+	return (1);
 }
