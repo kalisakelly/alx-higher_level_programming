@@ -1,8 +1,7 @@
 #!/usr/bin/python3
-def multiple_returns(sentence):
-    len_sen = len(sentence)
-    if (len_sen == 0):
-        new_tuple = (len_sen, None)
+def replace_in_list(my_list, idx, element):
+    if idx < 0 or idx > len(my_list) - 1:
+        return my_list
     else:
-        new_tuple = (len_sen, sentence[0])
-    return (new_tuple)
+        my_list[idx] = element
+        return my_list
