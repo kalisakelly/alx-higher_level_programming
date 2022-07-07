@@ -1,6 +1,9 @@
 #!/usr/bin/python3
+
+
+# multiply_by_2 - returns a new dictionary with all values multiplied by two.
 def multiply_by_2(a_dictionary):
-    a_dictionary_copy = dict(1_dictionary)
-    for k in a_dictionary_copy.keys():
-        a_dictionary_copy[k] = a_dictionary_copy[k] * 2
-    retur a_dictionary_copy
+    new_dict = a_dictionary.copy()
+    for i, j in new_dict.items():
+        new_dict[i] = j*2
+    return new_dict
